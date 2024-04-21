@@ -37,8 +37,6 @@ typedef class LinkedList{
             if (node!=head && node!=tail) {
                 Node* prevnode = node->prev;
                 Node* nextnode = node->next;
-                cout << head->val << tail->val << endl;
-                cout << node->val << endl;
                 prevnode->next = nextnode;
                 nextnode->prev = prevnode;
                 node->prev = nullptr;
