@@ -30,14 +30,25 @@ void printLinkedList(ListNode* head) {
     printf("null\n");
 }
 
-// ListNode* rev_LinkedList(ListNode* head) {
-    
-// }
+ListNode* rev_LinkedList(ListNode* head) {
+    if (!head->next) return head;
+    ListNode* prev = NULL;
+    ListNode* cur = head;
+    while (cur) {
+        ListNode* next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    return prev;
+}
 
 int main() {
     int array[10] = {1,2,3,4,5,6,7,8,9,10};
     ListNode* head = buildList(array, 10);
     printLinkedList(head);
+    ListNode* revhead = rev_LinkedList(head);
+    printLinkedList(revhead);
     return 0;
 }
 

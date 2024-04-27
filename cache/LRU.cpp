@@ -95,20 +95,6 @@ public:
     }
     
     void put(int key, int value) {
-        // Node* node = (Node*)malloc(sizeof(Node));
-        // node->val = value;
-        // node->key = key;
-        // umap[key] = node;
-        // if (LL->size < size) {
-        //     cout << "key " << key << "\nval " << value << endl; 
-        //     LL->pushhead(node);
-        // }
-        // else {
-        //     int tailkey = LL->tail->key;
-        //     umap.erase(tailkey);
-        //     LL->pop(LL->tail);
-        //     LL->pushhead(node);
-        // }
         if (umap.count(key) == 1) {
             umap[key]->val = value;
             LL->pop(umap[key]);
