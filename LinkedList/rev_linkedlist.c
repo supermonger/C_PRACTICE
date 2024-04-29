@@ -43,12 +43,47 @@ ListNode* rev_LinkedList(ListNode* head) {
     return prev;
 }
 
+ListNode* rev_LinkedList2(ListNode* head, int l, int r) {
+    ListNode* cur = head;
+    ListNode* prev = NULL;
+    ListNode* next = NULL;
+    ListNode* prev_of_subhead = NULL;
+    ListNode* subhead;
+    ListNode* subtail;
+    int count=1;
+    while (count<l) {
+        if (count==l-1) prev_of_subhead = cur;
+        cur = cur->next;
+        count++;
+    }
+    subtail = cur;
+    while (cur && count<=r){
+        subhead = cur;
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+        count++;
+    }
+    if (prev_of_subhead) {
+        prev_of_subhead->next = subhead;
+        subtail->next = next;
+        return head;
+    }
+    else {
+        subtail->next = next;
+        return subhead;
+    }
+}
+
 int main() {
     int array[10] = {1,2,3,4,5,6,7,8,9,10};
     ListNode* head = buildList(array, 10);
     printLinkedList(head);
     ListNode* revhead = rev_LinkedList(head);
     printLinkedList(revhead);
+    ListNode* revhead2 = rev_LinkedList2(revhead, 2,6);
+    printLinkedList(revhead2);
     return 0;
 }
 
