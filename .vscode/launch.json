@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/面試/code/C_Practice/cache",
-      "program": "d:/面試/code/C_Practice/cache/build/Debug/outDebug",
+      "cwd": "d:/面試/code/C_Practice/LinkedList",
+      "program": "d:/面試/code/C_Practice/LinkedList/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
