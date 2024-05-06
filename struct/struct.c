@@ -1,16 +1,19 @@
 # include <stdio.h>
+#define offsetof(TYPE, MEMBER) ((size_t) &((TYPE*)0)->MEMBER)
 
 typedef struct mystruct
 {
     char a;
     int b;
     char c[3];
-    /* data */
 }mystruct;
 
 
 int main() {
     mystruct m;
+    printf("offset of a is %d\n" ,(int)offsetof(mystruct, a));
+    printf("offset of b is %d\n" ,(int)offsetof(mystruct, b));
+    printf("offset of c is %d\n" ,(int)offsetof(mystruct, c[2]));
     printf("size of int is %d\n", (int)sizeof(int));
     printf("size of char is %d\n", (int)sizeof(char));
     printf("size of a is %d\n", (int)sizeof(mystruct));
