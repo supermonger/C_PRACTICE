@@ -4,19 +4,20 @@
 #include <string.h>
 #include <unistd.h>
 
+static int counter=0;
+
 void add(int* count) {
     int temp = *count + 1;
     *count = temp;
 }
 
 void* work(void* index_t) {
-    static int counter = 0;
     int* index = (int*)index_t;
     for (int i=0; i<5; i++) {
         add(&counter);
         printf("counter : %d thread :%d\n",counter, *index);
-        sleep(1.0E-6);
     }
+    sleep(1.0E-3);
     return NULL;
 }
 
